@@ -36,6 +36,12 @@ class ContactsController < ApplicationController
     render json: contact
   end
 
+  def favorites
+    contacts = Contact.where(user_id: params[:user_id], favorite: true)
+    favorite_shared_contacts = ContactShare.where(user_id: params[:user_id], favorite: true).map(&:contact)
+    render json: (contacts + favorite_shared_contacts)
+  end
+
   private
 
   def contact_params

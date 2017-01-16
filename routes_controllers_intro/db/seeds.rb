@@ -17,3 +17,6 @@ c3 = Contact.create(name: "Jiahao", email: "jay@yahoo.com", user_id: u2.id)
 ContactShare.destroy_all
 cs_1 = ContactShare.create(user_id: u2.id, contact_id: c1.id)
 cs_2 = ContactShare.create(user_id: u1.id, contact_id: c3.id)
+
+Comment.destroy_all
+comment1 = u1.comments.create(body: "whatevwer")
